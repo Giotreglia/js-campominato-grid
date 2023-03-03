@@ -10,5 +10,43 @@
 
 */
 
-const playButton = document.getElementById("play"); 
-console.log(playButton);
+// Elementi DOM
+const playButtonDom = document.getElementById("play"); 
+const squaresContainerDom = document.querySelector(".squares-container");
+
+ //Livelli
+/*   
+    facile = 100
+    medio = 81
+    difficile = 49  
+*/
+
+// Creo gli square
+
+let gridCells = 100;
+
+for (let i = 1; i <= gridCells; i++) {
+    
+    const currentSquare = createNewSquare(i);
+    
+    currentSquare.addEventListener('click',
+        function() {
+            this.classList.toggle('clicked');
+            console.log(i);
+        }
+    )
+
+    squaresContainerDom.append(currentSquare);
+    
+} 
+
+// FUNZIONI
+
+function createNewSquare(content) {
+    const currentSquare = document.createElement("div");
+    currentSquare.classList.add('square');
+    currentSquare.innerHTML = content;
+    return currentSquare;
+}
+
+

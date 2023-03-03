@@ -13,7 +13,7 @@ html {
     
     --header-height: 90px;
     --footer-height: 70px;
-
+    --main-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
 
@@ -70,8 +70,31 @@ header {
 
 main {
     width: 100%;
-    height: calc(100vh - var(--header-height) - var(--footer-height));
+    height: var(--main-height);
     background-color: rgb(127, 255, 212);
+}
+
+.squares-container {
+    width: var(--main-height);
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.square {
+    width: calc((var(--main-height) - 100px) / 10);
+    height: calc((var(--main-height) - 100px) / 10);
+    border: solid 1px rgb(1, 21, 51);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.1s;
+}
+
+.clicked {
+    background-color: rgb(1, 21, 51);
+    color: white;
 }
 
 
