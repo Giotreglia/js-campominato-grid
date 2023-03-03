@@ -21,24 +21,36 @@ const squaresContainerDom = document.querySelector(".squares-container");
     difficile = 49  
 */
 
-// Creo gli square
+// Creo la griglia di squares al clic sul bottone play
 
-let gridCells = 100;
+playButtonDom.addEventListener('click',
+    
+    function() {
 
-for (let i = 1; i <= gridCells; i++) {
-    
-    const currentSquare = createNewSquare(i);
-    
-    currentSquare.addEventListener('click',
-        function() {
-            this.classList.toggle('clicked');
-            console.log(i);
-        }
-    )
+        // Reset quadro
+        squaresContainerDom.innerHTML = "";
+        
+        // Creo griglia
+        let gridCells = 100;
 
-    squaresContainerDom.append(currentSquare);
-    
-} 
+        for (let i = 1; i <= gridCells; i++) {
+            
+            const currentSquare = createNewSquare(i);
+            
+            currentSquare.addEventListener('click',
+                function() {
+                    this.classList.toggle('clicked');
+                    console.log(i);
+                }
+            )
+
+            squaresContainerDom.append(currentSquare);
+            
+        } 
+        
+    })
+
+
 
 // FUNZIONI
 
