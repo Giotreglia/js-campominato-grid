@@ -15,11 +15,10 @@ const playButtonDom = document.getElementById("play");
 const squaresContainerDom = document.querySelector(".squares-container");
 
  //Livelli
-/*   
-    facile = 100
-    medio = 81
-    difficile = 49  
-*/
+ 
+const facile = 100
+const medio = 81
+const difficile = 49  
 
 // Creo la griglia di squares al clic sul bottone play
 
@@ -29,13 +28,32 @@ playButtonDom.addEventListener('click',
 
         // Reset quadro
         squaresContainerDom.innerHTML = "";
+
+        const levelDom = document.getElementById("level").value;
+        let gridCells;
+
+        if (levelDom == "facile") {
+            gridCells = facile;
+            console.log(levelDom);
+        } else if (levelDom == "medio") {
+            gridCells = medio;
+        } else if (levelDom == "difficile") {
+            gridCells = difficile;
+        }       
         
         // Creo griglia
-        let gridCells = 100;
 
         for (let i = 1; i <= gridCells; i++) {
             
             const currentSquare = createNewSquare(i);
+
+            if (gridCells == facile) {
+                currentSquare.classList.add('easy');
+            } else if (gridCells == medio) {
+                currentSquare.classList.add('medium');
+            } else if (gridCells == difficile) {
+                currentSquare.classList.add('hard');
+            }
             
             currentSquare.addEventListener('click',
                 function() {
@@ -60,5 +78,8 @@ function createNewSquare(content) {
     currentSquare.innerHTML = content;
     return currentSquare;
 }
+
+
+
 
 
