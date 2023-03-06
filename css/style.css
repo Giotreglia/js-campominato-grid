@@ -78,10 +78,22 @@ main {
 
 .squares-container {
     width: var(--main-height);
+    height: 100%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     padding: 50px;
+    position: relative;
+}
+
+.scritta-default {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgb(1, 21, 51);
 }
 
 .square {

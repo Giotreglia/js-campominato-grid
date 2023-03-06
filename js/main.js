@@ -29,12 +29,13 @@ playButtonDom.addEventListener('click',
         // Reset quadro
         squaresContainerDom.innerHTML = "";
 
+        // Definizione livello difficoltà
+
         const levelDom = document.getElementById("level").value;
         let gridCells;
 
         if (levelDom == "facile") {
             gridCells = facile;
-            console.log(levelDom);
         } else if (levelDom == "medio") {
             gridCells = medio;
         } else if (levelDom == "difficile") {
@@ -78,6 +79,8 @@ function createNewSquare(content) {
     currentSquare.innerHTML = content;
     return currentSquare;
 }
+
+
 
 
 
